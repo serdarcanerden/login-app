@@ -1,0 +1,18 @@
+{
+	"dark": "Dark",
+	"light": "Light",
+	"headerName": "Login Screen",
+	"footString": "Footer",
+	"logText": "Login",
+	"regText": "Register",
+	"userName": "Username",
+	"passWord": "Password",
+	"userhint": "Username can't be empty",
+	"userhint4": "The username should be longer than 4 characters",
+	"passhint": "Password can't be empty",
+	"passhintNofit": "Password must include an uppercase letter or a number",
+	"passhint8": "Password should be longer than 8 characters",
+	"return": "Return",
+	"pagenotfound": "We couldn't find the page you are looking for",
+	"pagenotfoundsub": "If you don't want to look at the weird colored mountains you can go back"
+}

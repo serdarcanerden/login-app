@@ -1,0 +1,18 @@
+{
+	"dark": "Dunkel",
+	"light": "Licht",
+	"headerName": "Anmeldebildschirm",
+	"footString": "Fusszeile",
+	"logText": "Anmeldung",
+	"regText": "Registrieren",
+	"userName": "Nutzername",
+	"passWord": "Passwort",
+	"userhint": "Benutzername darf nicht leer sein",
+	"userhint4": "Der Benutzername sollte länger als 4 Zeichen sein",
+	"passhint": "Das Passwort darf nicht leer sein",
+	"passhintNofit": "Das Passwort muss einen Großbuchstaben oder eine Zahl enthalten",
+	"passhint8": "Das Passwort sollte länger als 8 Zeichen sein",
+	"return": "Rückkehr",
+	"pagenotfound": "Wir konnten die gesuchte Seite nicht finden",
+	"pagenotfoundsub": "Wenn Sie nicht auf die seltsam gefärbten Berge schauen möchten, können Sie zurückgehen"
+}
