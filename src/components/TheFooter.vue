@@ -1,26 +1,34 @@
 <template>
-	<v-footer cols="2" align="center" class="footer" absolute>
-		<v-row justify="center" no-gutters>
+	<v-footer
+		align="center"
+		class="footer"
+		absolute
+		src="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
+		app
+	>
+		<v-row no-gutters>
 			<!-- Displayng a  -->
-			<v-col class="text-center white--text">
-				{{ new Date().getFullYear() }}
-				{{ footer }}
+			<small>
+				<v-col class="text-center">
+					{{ new Date().getFullYear() }}
+					{{ footer }}
+				</v-col>
+			</small>
+			<v-col class="text-right">
+				<v-btn x-small fab plain @click="langSelect('tr')">
+					<country-flag country="tr" />
+				</v-btn>
+				<v-btn x-small fab plain @click="langSelect('en')">
+					<country-flag country="gb" />
+				</v-btn>
+				<v-btn x-small fab plain @click="langSelect('de')">
+					<country-flag country="de" />
+				</v-btn>
+				<v-btn x-small fab plain @click="langSelect('ru')">
+					<country-flag country="ru" />
+				</v-btn>
 			</v-col>
 		</v-row>
-		<v-col>
-			<v-btn small fab plain @click="langSelect('tr')">
-				<country-flag country="tr" />
-			</v-btn>
-			<v-btn small fab plain @click="langSelect('en')">
-				<country-flag country="gb" />
-			</v-btn>
-			<v-btn small fab plain @click="langSelect('de')">
-				<country-flag country="de" />
-			</v-btn>
-			<v-btn small fab plain @click="langSelect('ru')">
-				<country-flag country="ru" />
-			</v-btn>
-		</v-col>
 	</v-footer>
 </template>
 <script>
@@ -50,13 +58,13 @@
 </script>
 
 <style scoped>
-	.footer {
+	/* .footer {
 		background-image: linear-gradient(
-			45deg,
-			hsla(230, 54%, 38%, 0.397),
-			hsla(196, 58%, 48%, 0.603)
+			80deg,
+			hsla(212, 9%, 66%, 0.705),
+			hsla(237, 8%, 49%, 0.986)
 		);
-	}
+	} */
 
 	select option {
 		margin: 40px;

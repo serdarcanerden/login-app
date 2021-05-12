@@ -14,5 +14,9 @@
 	"passhint8": "Das Passwort sollte länger als 8 Zeichen sein",
 	"return": "Rückkehr",
 	"pagenotfound": "Wir konnten die gesuchte Seite nicht finden",
-	"pagenotfoundsub": "Wenn Sie nicht auf die seltsam gefärbten Berge schauen möchten, können Sie zurückgehen"
+	"pagenotfoundsub": "Wenn Sie nicht auf die seltsam gefärbten Berge schauen möchten, können Sie zurückgehen",
+	"wronguser": "Username or Password is wrong",
+	"settings": "die Einstellungen",
+	"projects": "Projekte",
+	"projects1": "Projekte-1"
 }

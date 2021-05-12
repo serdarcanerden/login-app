@@ -3,27 +3,29 @@
 		<v-app>
 			<!-- Whole Login screen is a card can be changed but I thought it was fitting
 			for this purpose to use it and it is wrapping the form -->
-			<v-card elevation="10" width="500" class="mx-auto mt-16 myFont">
+			<v-card elevation="10" width="500" class="mx-auto myFont ma-16">
 				<div class="box">
-					<v-card-title class="titleColor">
-						<h1 class="mx-auto mt-4">{{ $t('headerName') }}</h1>
+					<v-card-title>
+						<span class="myFont mx-auto ma-4 secondary--text">{{
+							$t('headerName')
+						}}</span>
 					</v-card-title>
-					<v-divider class="vDivider"> </v-divider>
+					<v-divider color="white"> </v-divider>
 					<v-card-text>
-						<v-form @submit.prevent="checkData()">
+						<v-form @submit.prevent="">
 							<!-- In these fields wanted to use clearable prop as well but when u clear 
 							with that object the code itself tries to check the rules and while it is 
 							empty returns a null value and tries to check that results in a error 
 							plus i didn't want to handle everything myself while using vuetify so i removed
 							it and added hints on my own as div on the bottom -->
 							<v-text-field
+								autocomplete="off"
 								class="mt-4"
 								v-model="username"
 								title="username"
 								:rules="[rules.required, rules.min4, rules.max]"
 								outlined
 								prepend-icon="mdi-account-circle"
-								rounded
 								maxlength="16"
 								@blur="userActive()"
 								@focus="userDactive()"
@@ -37,7 +39,7 @@
 							<div class="hint">
 								{{ hintUser }}
 							</div>
-							<v-divider class="vDivider"> </v-divider>
+							<v-divider color="white"> </v-divider>
 							<!-- Only bad thing about these ones are the warnings are actually checked twice
 							one for vuetify and one for the text not too much performance hit but still can be 
 							improved -->
@@ -56,7 +58,6 @@
 									rules.empty,
 									showLock,
 								]"
-								rounded
 								counter="16"
 								maxlength="16"
 								:type="showEye ? 'text' : 'password'"
@@ -72,24 +73,29 @@
 							</v-text-field>
 							<!-- Displaying the password hints -->
 							<div class="hint">{{ hintPass }}</div>
+
+							<!-- Buttons divider a register form can be added didn't add that one -->
+							<v-divider color="white"> </v-divider>
+
+							<v-card-actions p="10">
+								<v-btn elevation="5" class="white--text" large color="info"
+									><v-icon>mdi-content-save-edit-outline</v-icon
+									>{{ $t('regText') }}</v-btn
+								>
+								<v-spacer></v-spacer>
+								<v-btn
+									elevation="15"
+									class="white--text"
+									color="success"
+									type="Login"
+									large
+									@click="onLogin"
+								>
+									{{ $t('logText') }}
+									<v-icon dark> mdi-login-variant </v-icon></v-btn
+								>
+							</v-card-actions>
 						</v-form>
-						<!-- Buttons divider a register form can be added didn't add that one -->
-						<v-divider class="vDivider"> </v-divider>
-						<v-card-actions p="10">
-							<v-btn elevation="5" class="ma-1" plain rounded color="white">{{
-								$t('regText')
-							}}</v-btn>
-							<v-spacer></v-spacer>
-							<v-btn
-								elevation="15"
-								class="ma-1"
-								plain
-								rounded
-								color="white"
-								@click="checkData"
-								>{{ $t('logText') }}</v-btn
-							>
-						</v-card-actions>
 					</v-card-text>
 				</div>
 			</v-card>
@@ -98,7 +104,6 @@
 </template>
 
 <script>
-	// const axios = require('axios').default;
 	export default {
 		name: 'LoginPage',
 		data: () => ({
@@ -134,20 +139,46 @@
 			},
 			/* We will check if everything is ok about the password with regex and if the data matches
 			on the server and proceed to login by giving the user a key/id*/
-			checkData() {
-				console.log(this.showLock);
-				// axios
-				// 	.post('/user', {
-				// 		firstName: 'Fred',
-				// 		lastName: 'Flintstone',
-				// 	})
-				// 	.then(function(response) {
-				// 		console.log(response);
-				// 	})
-				// 	.catch(function(error) {
-				// 		console.log(error);
-				// 	});
-				this.$router.replace('/home'); //, params: { userId } });
+			onLogin() {
+				let user = false;
+				//  Mock up user data as username and password is created
+				// fetch(
+				// 	'https://loginpage-e5ac2-default-rtdb.europe-west1.firebasedatabase.app/user.json',
+				// 	{
+				// 		method: 'POST',
+				// 		headers: {
+				// 			'Content-Type': 'application/json',
+				// 		},
+				// 		body: JSON.stringify({
+				// 			Username: 'admin',
+				// 			Password: 'admin',
+				// 		}),
+				// 	}
+				// );
+				fetch(
+					'https://loginpage-e5ac2-default-rtdb.europe-west1.firebasedatabase.app/user.json'
+				)
+					.then((response) => {
+						if (response.ok) {
+							return response.json();
+						}
+					})
+					.then((data) => {
+						if (this.showLock) {
+							for (const id in data) {
+								if (
+									data[id].Password == this.password &&
+									data[id].Username == this.username
+								) {
+									this.$router.replace('/home');
+									user = true;
+								}
+							}
+						}
+						if (!user || !this.showLock) {
+							alert('Username or password is wrong');
+						}
+					});
 			},
 		},
 
@@ -194,12 +225,13 @@
 <style scoped>
 	.myFont {
 		font-family: Arial, Helvetica, sans-serif;
+		font-size: 2rem;
 	}
 	.box {
 		background-image: linear-gradient(
-			45deg,
-			hsla(230, 54%, 38%, 0.397),
-			hsla(196, 58%, 48%, 0.603)
+			80deg,
+			hsla(240, 3%, 44%, 0.986),
+			hsla(212, 9%, 66%, 0.705)
 		);
 	}
 
@@ -209,9 +241,9 @@
 		display: grid;
 		align-items: start;
 	}
-	.vDivider {
+	/* .vDivider {
 		background: #ffffff;
-	}
+	} */
 
 	.titleColor {
 		color: #f3ebebd5;

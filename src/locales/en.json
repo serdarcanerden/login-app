@@ -14,5 +14,9 @@
 	"passhint8": "Password should be longer than 8 characters",
 	"return": "Return",
 	"pagenotfound": "We couldn't find the page you are looking for",
-	"pagenotfoundsub": "If you don't want to look at the weird colored mountains you can go back"
+	"pagenotfoundsub": "If you don't want to look at the weird colored mountains you can go back",
+	"wronguser": "Username or Password is wrong",
+	"settings": "Settings",
+	"projects": "Projects",
+	"projects1": "Projects-1"
 }

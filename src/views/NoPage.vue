@@ -1,38 +1,36 @@
 <template>
-	<v-container fluid>
-		<v-card
-			class="mx-auto text-center card"
-			elevation="15"
-			height="250"
-			width="450"
+	<v-card
+		class="mx-auto text-center card"
+		elevation="15"
+		height="250"
+		width="450"
+	>
+		<v-card-text class="wavy mt-5">
+			<span style="--i:1">4</span>
+			<span style="--i:2">0</span>
+			<span style="--i:3">4</span>
+			<span style="--i:4">-</span>
+			<span style="--i:5">P</span>
+			<span style="--i:6">a</span>
+			<span style="--i:7">g</span>
+			<span style="--i:8">e</span>
+			<span style="--i:9"> </span>
+			<span style="--i:10">N</span>
+			<span style="--i:11">o</span>
+			<span style="--i:12">t</span>
+			<span style="--i:13">F</span>
+			<span style="--i:14">o</span>
+			<span style="--i:15">u</span>
+			<span style="--i:16">n</span>
+			<span style="--i:17">d</span>
+		</v-card-text>
+		<v-card-text class="mt-14 secondary--text">
+			{{ $t('pagenotfound') }}
+		</v-card-text>
+		<v-btn bottom centered color="warning" elevation="5" @click="returnHist">
+			{{ $t('return') }}</v-btn
 		>
-			<v-card-text class="wavy mt-5">
-				<span style="--i:1">4</span>
-				<span style="--i:2">0</span>
-				<span style="--i:3">4</span>
-				<span style="--i:4">-</span>
-				<span style="--i:5">P</span>
-				<span style="--i:6">a</span>
-				<span style="--i:7">g</span>
-				<span style="--i:8">e</span>
-				<span style="--i:9"> </span>
-				<span style="--i:10">N</span>
-				<span style="--i:11">o</span>
-				<span style="--i:12">t</span>
-				<span style="--i:13">F</span>
-				<span style="--i:14">o</span>
-				<span style="--i:15">u</span>
-				<span style="--i:16">n</span>
-				<span style="--i:17">d</span>
-			</v-card-text>
-			<v-card-text class="mt-14">
-				{{ $t('pagenotfound') }}
-			</v-card-text>
-			<v-btn bottom centered plain rounded elevation="5" @click="returnHist">
-				{{ $t('return') }}</v-btn
-			>
-		</v-card>
-	</v-container>
+	</v-card>
 </template>
 
 <script>
@@ -40,7 +38,9 @@
 		data: () => ({}),
 
 		methods: {
-			returnHist() {},
+			returnHist() {
+				console.log(this.$router.replace('/home'));
+			},
 		},
 	};
 </script>
@@ -74,9 +74,9 @@
 
 	.card {
 		background-image: linear-gradient(
-			45deg,
-			hsla(230, 54%, 38%, 0.397),
-			hsla(196, 58%, 48%, 0.603)
+			80deg,
+			hsla(240, 3%, 44%, 0.986),
+			hsla(212, 9%, 66%, 0.705)
 		);
 	}
 </style>

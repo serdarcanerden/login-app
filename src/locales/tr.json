@@ -3,8 +3,8 @@
 	"light": "Beyaz",
 	"headerName": "Üye Giriş Ekranı",
 	"footString": "Altbilgi",
-	"logText": "Üye girişi",
-	"regText": "Kayıt Ol",
+	"logText": "Giriş",
+	"regText": "Kayıt",
 	"userName": "Üye adı",
 	"passWord": "Şifre",
 	"userhint": "Üye ismi boş bırakılamaz",
@@ -14,5 +14,9 @@
 	"passhint8": "Şifreniz 8 karakterden uzun olmalı",
 	"return": "Geri Dön",
 	"pagenotfound": "Aradığınız sayfayı bulamadık üzgünüz",
-	"pagenotfoundsub": "Garip renkteki dağlara bakmak istemiyorsanız geri dönebilirsiniz"
+	"pagenotfoundsub": "Garip renkteki dağlara bakmak istemiyorsanız geri dönebilirsiniz",
+	"wronguser": "Üye ismi ya da Şifre yanlış",
+	"settings": "Ayarlar",
+	"projects": "Projeler",
+	"projects1": "Projeler-1"
 }
