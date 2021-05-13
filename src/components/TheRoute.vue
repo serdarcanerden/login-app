@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<v-list-item class="mx-auto">
-			<v-btn :disabled="isDisabled" plain fab x-small @click="RouteBack"
+			<v-btn :disabled="backDisabled" plain fab x-small @click="RouteBack"
 				><v-icon>mdi-arrow-left-bold-circle-outline</v-icon></v-btn
 			>
 
@@ -29,12 +29,20 @@
 			},
 		},
 		computed: {
-			isDisabled() {
-				if (window.history.length <= 2 || this.$route.name == 'Home') {
+			backDisabled() {
+				if (this.$route.name == 'Home') {
 					return true;
 				}
 				return false;
 			},
+
+			// Added this part while trying to figure out if browsers forward button or clicked or not
+			// or if we can figure out where we are at the history stack we can disable the forward button
+			// accordingly
+			// frontDisabled() {
+			// 	console.log(window.location.lasthash.pop());
+			// 	return false;
+			// },
 		},
 	};
 </script>

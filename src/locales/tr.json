@@ -18,5 +18,10 @@
 	"wronguser": "Üye ismi ya da Şifre yanlış",
 	"settings": "Ayarlar",
 	"projects": "Projeler",
-	"projects1": "Projeler-1"
+	"projects1": "Projeler-1",
+	"name": "İsim",
+	"surname": "Soyisim",
+	"field": "Alan",
+	"field1": "Alan-1",
+	"field2": "Alan-2"
 }

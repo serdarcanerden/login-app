@@ -112,7 +112,6 @@
 			password: '', // Password (v-model) value
 			pssAct: false, //Password hover boolean
 			usrAct: false, //Username hover boolean
-			passwordStrength: 'low',
 			rules: {
 				/* Vuetifyin kendi rulelarını ve borderları kırmızıya dondurmek icin*/
 				required: (v) => !!v,

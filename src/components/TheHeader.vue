@@ -61,8 +61,6 @@
 				{ name: 'projects', icon: 'mdi-file' },
 				{ name: 'projects1', icon: 'mdi-file' },
 				{ name: 'settings', icon: 'mdi-cog' },
-				{ name: 'dark', icon: 'mdi-magnify' },
-				{ name: 'footString', icon: 'mdi-lock' },
 			],
 		}),
 		methods: {

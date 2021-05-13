@@ -39,7 +39,7 @@
 
 		methods: {
 			returnHist() {
-				console.log(this.$router.replace('/home'));
+				this.$router.replace('/home');
 			},
 		},
 	};

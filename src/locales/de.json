@@ -18,5 +18,10 @@
 	"wronguser": "Username or Password is wrong",
 	"settings": "die Einstellungen",
 	"projects": "Projekte",
-	"projects1": "Projekte-1"
+	"projects1": "Projekte-1",
+	"name": "Name",
+	"surname": "Nachname",
+	"field": "Feld",
+	"field1": "Feld-1",
+	"field2": "Feld-2"
 }
