@@ -1,7 +1,6 @@
 <template>
 	<div>
 		<the-header></the-header>
-		<the-route></the-route>
 		<v-skeleton-loader
 			v-bind="attrs"
 			type="card-avatar, article, actions"
@@ -23,9 +22,9 @@
 
 <script>
 	import TheHeader from '../components/TheHeader';
-	import TheRoute from '../components/TheRoute';
+
 	export default {
-		components: { TheHeader, TheRoute },
+		components: { TheHeader },
 		data: () => ({
 			attrs: {
 				class: 'mb-6',

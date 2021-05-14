@@ -23,5 +23,8 @@
 	"surname": "Soyisim",
 	"field": "Alan",
 	"field1": "Alan-1",
-	"field2": "Alan-2"
+	"field2": "Alan-2",
+	"commentfield": "Yorum",
+	"projectadd": "Ekle",
+	"projectview": "İncele"
 }

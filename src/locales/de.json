@@ -23,5 +23,8 @@
 	"surname": "Nachname",
 	"field": "Feld",
 	"field1": "Feld-1",
-	"field2": "Feld-2"
+	"field2": "Feld-2",
+	"commentfield": "Kommentar",
+	"projectadd": "Hinzufügen",
+	"projectview": "Aussicht"
 }

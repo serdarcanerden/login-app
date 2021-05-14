@@ -1,105 +1,103 @@
 <template>
 	<div>
-		<v-app>
-			<!-- Whole Login screen is a card can be changed but I thought it was fitting
+		<!-- Whole Login screen is a card can be changed but I thought it was fitting
 			for this purpose to use it and it is wrapping the form -->
-			<v-card elevation="10" width="500" class="mx-auto myFont ma-16">
-				<div class="box">
-					<v-card-title>
-						<span class="myFont mx-auto ma-4 secondary--text">{{
-							$t('headerName')
-						}}</span>
-					</v-card-title>
-					<v-divider color="white"> </v-divider>
-					<v-card-text>
-						<v-form @submit.prevent="">
-							<!-- In these fields wanted to use clearable prop as well but when u clear 
+		<v-card elevation="10" width="500" class="mx-auto ma-16">
+			<div>
+				<v-card-title>
+					<span class="myFont mx-auto ma-4 secondary--text">{{
+						$t('headerName')
+					}}</span>
+				</v-card-title>
+				<v-divider color="white"> </v-divider>
+				<v-card-text>
+					<v-form @submit.prevent="">
+						<!-- In these fields wanted to use clearable prop as well but when u clear 
 							with that object the code itself tries to check the rules and while it is 
 							empty returns a null value and tries to check that results in a error 
 							plus i didn't want to handle everything myself while using vuetify so i removed
 							it and added hints on my own as div on the bottom -->
-							<v-text-field
-								autocomplete="off"
-								class="mt-4"
-								v-model="username"
-								title="username"
-								:rules="[rules.required, rules.min4, rules.max]"
-								outlined
-								prepend-icon="mdi-account-circle"
-								maxlength="16"
-								@blur="userActive()"
-								@focus="userDactive()"
-							>
-								<!-- Hacky workaround because that I decided to use i18n vuetify only offered
+						<v-text-field
+							autocomplete="off"
+							class="mt-4"
+							v-model="username"
+							title="username"
+							:rules="[rules.required, rules.min4, rules.max]"
+							outlined
+							prepend-icon="mdi-account-circle"
+							maxlength="16"
+							@blur="userActive()"
+							@focus="userDactive()"
+						>
+							<!-- Hacky workaround because that I decided to use i18n vuetify only offered
 							an option like below to nest to html elements inside each other and control it
 							in methods or computed properties -->
-								<template v-slot:label> {{ $t('userName') }} </template>
-							</v-text-field>
-							<!-- Displaying the hint while checking the v-model values -->
-							<div class="hint">
-								{{ hintUser }}
-							</div>
-							<v-divider color="white"> </v-divider>
-							<!-- Only bad thing about these ones are the warnings are actually checked twice
+							<template v-slot:label> {{ $t('userName') }} </template>
+						</v-text-field>
+						<!-- Displaying the hint while checking the v-model values -->
+						<div class="hint">
+							{{ hintUser }}
+						</div>
+						<v-divider color="white"> </v-divider>
+						<!-- Only bad thing about these ones are the warnings are actually checked twice
 							one for vuetify and one for the text not too much performance hit but still can be 
 							improved -->
 
-							<v-text-field
-								class="mt-4"
-								ref="passInput"
-								name="password"
-								autocomplete="password"
-								v-model="password"
-								title="password"
-								:rules="[
-									rules.required,
-									rules.min,
-									rules.max,
-									rules.empty,
-									showLock,
-								]"
-								counter="16"
-								maxlength="16"
-								:type="showEye ? 'text' : 'password'"
-								outlined
-								:prepend-icon="showLock ? 'mdi-lock-open-variant' : 'mdi-lock'"
-								:append-icon="showEye ? 'mdi-eye' : 'mdi-eye-off'"
-								@click:append="showEye = !showEye"
-								@blur="passActive()"
-								@focus="passDactive()"
+						<v-text-field
+							class="mt-4"
+							ref="passInput"
+							name="password"
+							autocomplete="password"
+							v-model="password"
+							title="password"
+							:rules="[
+								rules.required,
+								rules.min,
+								rules.max,
+								rules.empty,
+								showLock,
+							]"
+							counter="16"
+							maxlength="16"
+							:type="showEye ? 'text' : 'password'"
+							outlined
+							:prepend-icon="showLock ? 'mdi-lock-open-variant' : 'mdi-lock'"
+							:append-icon="showEye ? 'mdi-eye' : 'mdi-eye-off'"
+							@click:append="showEye = !showEye"
+							@blur="passActive()"
+							@focus="passDactive()"
+						>
+							<!-- Same work around above username did that on password -->
+							<template v-slot:label> {{ $t('passWord') }} </template>
+						</v-text-field>
+						<!-- Displaying the password hints -->
+						<div class="hint">{{ hintPass }}</div>
+
+						<!-- Buttons divider a register form can be added didn't add that one -->
+						<v-divider color="white"> </v-divider>
+
+						<v-card-actions p="10">
+							<v-btn elevation="5" class="white--text" large color="info"
+								><v-icon>mdi-content-save-edit-outline</v-icon
+								>{{ $t('regText') }}</v-btn
 							>
-								<!-- Same work around above username did that on password -->
-								<template v-slot:label> {{ $t('passWord') }} </template>
-							</v-text-field>
-							<!-- Displaying the password hints -->
-							<div class="hint">{{ hintPass }}</div>
-
-							<!-- Buttons divider a register form can be added didn't add that one -->
-							<v-divider color="white"> </v-divider>
-
-							<v-card-actions p="10">
-								<v-btn elevation="5" class="white--text" large color="info"
-									><v-icon>mdi-content-save-edit-outline</v-icon
-									>{{ $t('regText') }}</v-btn
-								>
-								<v-spacer></v-spacer>
-								<v-btn
-									elevation="15"
-									class="white--text"
-									color="success"
-									type="Login"
-									large
-									@click="onLogin"
-								>
-									{{ $t('logText') }}
-									<v-icon dark> mdi-login-variant </v-icon></v-btn
-								>
-							</v-card-actions>
-						</v-form>
-					</v-card-text>
-				</div>
-			</v-card>
-		</v-app>
+							<v-spacer></v-spacer>
+							<v-btn
+								elevation="15"
+								class="white--text"
+								color="success"
+								type="Login"
+								large
+								@click="onLogin"
+							>
+								{{ $t('logText') }}
+								<v-icon dark> mdi-login-variant </v-icon></v-btn
+							>
+						</v-card-actions>
+					</v-form>
+				</v-card-text>
+			</div>
+		</v-card>
 	</div>
 </template>
 
@@ -225,13 +223,6 @@
 	.myFont {
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: 2rem;
-	}
-	.box {
-		background-image: linear-gradient(
-			80deg,
-			hsla(240, 3%, 44%, 0.986),
-			hsla(212, 9%, 66%, 0.705)
-		);
 	}
 
 	.hint {

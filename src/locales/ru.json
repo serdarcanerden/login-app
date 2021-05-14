@@ -23,5 +23,8 @@
 	"surname": "Фамилия",
 	"field": "Поле",
 	"field1": "Поле-1",
-	"field2": "Поле-2"
+	"field2": "Поле-2",
+	"commentfield": "Йорум",
+	"projectadd": "Добавлять",
+	"projectview": "Вид"
 }

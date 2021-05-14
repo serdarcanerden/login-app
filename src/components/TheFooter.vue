@@ -1,7 +1,7 @@
 <template>
 	<v-footer
+		color="primary"
 		align="center"
-		class="footer"
 		absolute
 		src="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
 		app
@@ -57,17 +57,4 @@
 	};
 </script>
 
-<style scoped>
-	/* .footer {
-		background-image: linear-gradient(
-			80deg,
-			hsla(212, 9%, 66%, 0.705),
-			hsla(237, 8%, 49%, 0.986)
-		);
-	} */
-
-	select option {
-		margin: 40px;
-		color: rgb(118, 118, 126);
-	}
-</style>
+<style scoped></style>

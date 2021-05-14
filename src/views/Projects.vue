@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<the-header></the-header>
-		<the-route></the-route>
+
 		<div>
 			<v-card class="mx-auto" outlined elevation="4" tile>
 				<v-row align="center" class="ma-2">
@@ -71,39 +71,29 @@
 				</v-row>
 			</v-card>
 
-			<v-card class="mx-auto mt-12" outlined elevation="4" tile>
-				<v-card-title>
-					<v-text-field
-						append-icon="mdi-magnify"
-						label="Search"
-						v-model="search"
-						single-line
-						hide-details
-					></v-text-field>
-				</v-card-title>
-				<v-data-table :search="search"></v-data-table>
-			</v-card>
+			<v-card class="mx-auto mt-12" outlined elevation="4" tile> </v-card>
 		</div>
 	</div>
 </template>
 
 <script>
 	import TheHeader from '../components/TheHeader';
-	import TheRoute from '../components/TheRoute';
+
 	export default {
 		components: {
 			TheHeader,
-			TheRoute,
 		},
 
-		data: () => ({
-			search: '',
-			name: '',
-			surname: '',
-			field: '',
-			field1: '',
-			field2: '',
-		}),
+		data: function() {
+			return {
+				search: '',
+				name: '',
+				surname: '',
+				field: '',
+				field1: '',
+				field2: '',
+			};
+		},
 		methods: {
 			addForm() {},
 			resetForm() {

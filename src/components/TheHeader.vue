@@ -1,25 +1,32 @@
 <template>
 	<v-card>
-		<v-app-bar dense collapse-on-scroll min-width="250" app>
+		<v-app-bar dense collapse-on-scroll min-width="260" color="primary" app>
 			<!-- Menu item as nav draver -->
 			<v-app-bar-nav-icon
-				class="mr-2"
+				class="mr-1"
 				small
 				@click.stop="drawer = !drawer"
 			></v-app-bar-nav-icon>
 			<!-- User image atm. random image-->
-			<v-avatar size="35">
+			<v-avatar class="ma-1" size="35">
 				<v-img src="https://randomuser.me/api/portraits/women/64.jpg"></v-img
 			></v-avatar>
 
-			<!-- User name -->
-			<v-app-bar-title class="ml-1">
-				Sandra Adams
-			</v-app-bar-title>
+			<v-btn :disabled="backDisabled" plain icon x-small @click="RouteBack"
+				><v-icon>mdi-arrow-left-bold-circle-outline</v-icon></v-btn
+			>
+
+			<v-list-item-subtitle class="text-center">
+				{{ $route.path }}
+			</v-list-item-subtitle>
+			<v-spacer></v-spacer>
+			<v-btn plain icon x-small @click="RouteFront"
+				><v-icon> mdi-arrow-right-bold-circle-outline</v-icon></v-btn
+			>
 
 			<v-spacer></v-spacer>
-			<v-btn class="ml-1" small plain fab><v-icon>mdi-magnify</v-icon></v-btn>
-			<v-btn class="ml-1" small plain fab @click="toggleTheme">
+
+			<v-btn class="ml-1" small plain icon @click="toggleTheme">
 				<v-icon :color="$vuetify.theme.dark ? 'white' : 'black'"
 					>mdi-invert-colors</v-icon
 				>
@@ -28,7 +35,7 @@
 				small
 				class="ml-1"
 				plain
-				fab
+				icon
 				@click="$router.push({ name: 'Home' }).catch((err) => {})"
 			>
 				<v-icon>mdi-home</v-icon></v-btn
@@ -67,9 +74,21 @@
 			toggleTheme() {
 				this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
 			},
+			RouteBack() {
+				this.$router.go(-1);
+			},
+			RouteFront() {
+				this.$router.go(1);
+			},
 		},
 
 		computed: {
+			backDisabled() {
+				if (this.$route.name == 'Home') {
+					return true;
+				}
+				return false;
+			},
 			Routepath() {
 				console.log(this.$route.path);
 				return this.$route.path;
@@ -84,12 +103,4 @@
 	};
 </script>
 
-<style scoped>
-	/* .header {
-		background-image: linear-gradient(
-			80deg,
-			hsla(237, 8%, 49%, 0.986),
-			hsla(212, 9%, 66%, 0.705)
-		);
-	} */
-</style>
+<style scoped></style>

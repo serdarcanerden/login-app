@@ -6,6 +6,12 @@ Vue.use(Vuetify);
 Vue.component('my-component', {
 	methods: {},
 });
-export default new Vuetify({
-	theme: { dark: false },
+
+const vuetify = new Vuetify({
+	theme: {
+		themes: {},
+		dark: false,
+	},
 });
+
+export default vuetify;
