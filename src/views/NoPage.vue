@@ -1,6 +1,6 @@
 <template>
 	<v-card
-		class="mx-auto text-center card"
+		class="mt-16 mx-auto text-center card"
 		elevation="15"
 		height="250"
 		width="450"
@@ -24,10 +24,13 @@
 			<span style="--i:16">n</span>
 			<span style="--i:17">d</span>
 		</v-card-text>
-		<v-card-text class="mt-14 secondary--text">
+		<v-card-subtitle class="mt-14 secondary--text">
 			{{ $t('pagenotfound') }}
-		</v-card-text>
-		<v-btn bottom centered color="warning" elevation="5" @click="returnHist">
+		</v-card-subtitle>
+		<v-btn bottom centered plain color="warning" @click="returnHist">
+			<v-icon left>
+				mdi-keyboard-return
+			</v-icon>
 			{{ $t('return') }}</v-btn
 		>
 	</v-card>
@@ -39,6 +42,8 @@
 
 		methods: {
 			returnHist() {
+				console.log('AT THE NO PAGE PART');
+				console.log(this.$store.getters.isUserLogged);
 				this.$router.replace('/home');
 			},
 		},
@@ -54,7 +59,7 @@
 	.wavy span {
 		position: relative;
 		display: inline-block;
-		color: whitesmoke;
+		color: #ffc107;
 		font-size: 1.9em;
 		animation: animate 2s ease-in-out infinite;
 		animation-delay: calc(0.1s * var(--i));
@@ -70,13 +75,5 @@
 		100% {
 			transform: translateY(0px);
 		}
-	}
-
-	.card {
-		background-image: linear-gradient(
-			80deg,
-			hsla(240, 3%, 44%, 0.986),
-			hsla(212, 9%, 66%, 0.705)
-		);
 	}
 </style>

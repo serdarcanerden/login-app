@@ -26,5 +26,7 @@
 	"field2": "Field-2",
 	"commentfield": "Comment",
 	"projectadd": "Add",
-	"projectview": "View"
+	"projectview": "View",
+	"logout": "Logout",
+	"noauth": "Önce giriş yapmalısınız"
 }

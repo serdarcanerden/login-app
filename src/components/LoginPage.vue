@@ -102,6 +102,7 @@
 </template>
 
 <script>
+	// import store from '../store/index.js';
 	export default {
 		name: 'LoginPage',
 		data: () => ({
@@ -167,6 +168,7 @@
 									data[id].Password == this.password &&
 									data[id].Username == this.username
 								) {
+									this.$store.commit('userCheck', data[id].Username);
 									this.$router.replace('/home');
 									user = true;
 								}

@@ -6,7 +6,7 @@
 	import LoginPage from '../components/LoginPage';
 
 	export default {
-		name: 'Home',
+		name: 'Login',
 
 		components: {
 			LoginPage,

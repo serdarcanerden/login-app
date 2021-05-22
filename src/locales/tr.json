@@ -26,5 +26,7 @@
 	"field2": "Alan-2",
 	"commentfield": "Yorum",
 	"projectadd": "Ekle",
-	"projectview": "İncele"
+	"projectview": "İncele",
+	"logout": "Çıkış Yap",
+	"noauth": "Önce giriş yapmalısınız"
 }

@@ -26,5 +26,7 @@
 	"field2": "Поле-2",
 	"commentfield": "Йорум",
 	"projectadd": "Добавлять",
-	"projectview": "Вид"
+	"projectview": "Вид",
+	"logout": "Выйти",
+	"noauth": "Önce giriş yapmalısınız"
 }

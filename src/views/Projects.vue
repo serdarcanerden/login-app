@@ -1,7 +1,6 @@
 <template>
 	<div>
 		<the-header></the-header>
-
 		<div>
 			<v-card class="mx-auto" outlined elevation="4" tile>
 				<v-row align="center" class="ma-2">

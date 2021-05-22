@@ -1,6 +1,5 @@
 <template>
 	<v-footer
-		color="primary"
 		align="center"
 		absolute
 		src="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"

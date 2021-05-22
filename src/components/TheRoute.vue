@@ -6,7 +6,6 @@
 			<v-btn :disabled="backDisabled" plain fab x-small @click="RouteBack"
 				><v-icon>mdi-arrow-left-bold-circle-outline</v-icon></v-btn
 			>
-
 			<v-list-item-subtitle class="text-center">{{
 				$route.path
 			}}</v-list-item-subtitle>
