@@ -3,22 +3,17 @@
 		<div class="backgr ml-n3 mt-n3">
 			<div class="overlay"></div>
 			<div class="terminal">
-				<h1>Error</h1>
+				<h1>{{ $t('noauthtitle') }}</h1>
 				<p class="output">
-					The page you are looking for might have been removed, had its name
-					changed or is temporarily unavailable.
+					{{ $t('noauth') }}
 				</p>
 				<p class="output">
-					Please try to go<v-btn
-						@click="returnHist()"
-						class="button mb-2 ml-2"
-						tile
-						large
-					>
-						<h1>back</h1></v-btn
+					{{ $t('noauth-1')
+					}}<v-btn @click="returnHist()" class="button mb-2 ml-2" tile large>
+						<h1>{{ $t('noauth-1button') }}</h1></v-btn
 					>
 				</p>
-				<p class="output">Good luck.</p>
+				<p class="output">{{ $t('noauth-2') }}</p>
 			</div>
 		</div>
 	</body>

@@ -1,8 +1,7 @@
 {
-	"dark": "Dunkel",
-	"light": "Licht",
 	"headerName": "Anmeldebildschirm",
 	"footString": "Fusszeile",
+
 	"logText": "Anmeldung",
 	"regText": "Registrieren",
 	"userName": "Nutzername",
@@ -12,13 +11,15 @@
 	"passhint": "Das Passwort darf nicht leer sein",
 	"passhintNofit": "Das Passwort muss einen Großbuchstaben oder eine Zahl enthalten",
 	"passhint8": "Das Passwort sollte länger als 8 Zeichen sein",
+	"wronguser": "Username or Password is wrong",
+
 	"return": "Rückkehr",
 	"pagenotfound": "Wir konnten die gesuchte Seite nicht finden",
-	"pagenotfoundsub": "Wenn Sie nicht auf die seltsam gefärbten Berge schauen möchten, können Sie zurückgehen",
-	"wronguser": "Username or Password is wrong",
+
 	"settings": "die Einstellungen",
 	"projects": "Projekte",
 	"projects1": "Projekte-1",
+
 	"name": "Name",
 	"surname": "Nachname",
 	"field": "Feld",
@@ -27,6 +28,14 @@
 	"commentfield": "Kommentar",
 	"projectadd": "Hinzufügen",
 	"projectview": "Aussicht",
+
 	"logout": "Ausloggen",
-	"noauth": "Önce giriş yapmalısınız"
+	"confirm": "Bestätigen",
+	"soutreminder": "Sie melden sich ab, sind Sie sicher?",
+
+	"noauthtitle": "FEHLER - KEINE AUTORISIERUNG",
+	"noauth": "Die Seite, nach der Sie suchen, wurde möglicherweise entfernt, ihr Name wurde geändert oder ist vorübergehend nicht verfügbar.",
+	"noauth-1": "BITTE VERSUCHEN SIE ZU GEHEN",
+	"noauth-1button": "ZURÜCK",
+	"noauth-2": "VIEL GLÜCK."
 }

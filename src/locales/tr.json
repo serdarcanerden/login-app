@@ -1,8 +1,7 @@
 {
-	"dark": "Siyah",
-	"light": "Beyaz",
 	"headerName": "Üye Giriş Ekranı",
 	"footString": "Altbilgi",
+
 	"logText": "Giriş",
 	"regText": "Kayıt",
 	"userName": "Üye adı",
@@ -12,13 +11,15 @@
 	"passhint": "Şifre boş bırakılamaz",
 	"passhintNofit": "Şifre büyük harf veya sayı içermeli",
 	"passhint8": "Şifreniz 8 karakterden uzun olmalı",
+	"wronguser": "Üye ismi ya da Şifre yanlış",
+
 	"return": "Geri Dön",
 	"pagenotfound": "Aradığınız sayfayı bulamadık üzgünüz",
-	"pagenotfoundsub": "Garip renkteki dağlara bakmak istemiyorsanız geri dönebilirsiniz",
-	"wronguser": "Üye ismi ya da Şifre yanlış",
+
 	"settings": "Ayarlar",
 	"projects": "Projeler",
 	"projects1": "Projeler-1",
+
 	"name": "İsim",
 	"surname": "Soyisim",
 	"field": "Alan",
@@ -27,6 +28,14 @@
 	"commentfield": "Yorum",
 	"projectadd": "Ekle",
 	"projectview": "İncele",
+
 	"logout": "Çıkış Yap",
-	"noauth": "Önce giriş yapmalısınız"
+	"confirm": "Onayla",
+	"soutreminder": "Çıkış yapıyorsun emin misin?",
+
+	"noauthtitle": "HATA - YETKİLENDİRME YOK",
+	"noauth": "Aradığınız sayfa kaldırılmış. Adı değiştirilmiş veya geçici olarak kullanılamaz.",
+	"noauth-1": "LÜTFEN GERİ",
+	"noauth-1button": "DÖNÜN",
+	"noauth-2": "İYİ ŞANSLAR."
 }

@@ -4,13 +4,15 @@
 
 		<v-card>
 			<!-- Slider part -->
-			<v-tabs v-model="tab" background-color="primary" centered>
+			<v-tabs outlined v-model="tab" centered>
 				<v-tabs-slider></v-tabs-slider>
+				<!-- FIRST TAB -->
 				<v-tab href="#tab-1">
 					<v-icon class="ma-1">mdi-plus-box-outline</v-icon>
 					{{ $t('projectadd') }}
 				</v-tab>
 
+				<!-- SECOND TAB -->
 				<v-tab href="#tab-2">
 					<v-icon class="ma-1">mdi-view-grid-outline</v-icon>
 					{{ $t('projectview') }}
@@ -189,6 +191,7 @@
 					this.field2,
 					this.commentfield
 				);
+				this.resetForm();
 			},
 			resetForm() {
 				this.name = '';

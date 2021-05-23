@@ -1,7 +1,7 @@
 <template>
 	<v-card>
 		<!-- APP BAR (HEADER) -->
-		<v-app-bar collapse-on-scroll tile dense app>
+		<v-app-bar tile dense collapse-on-scroll min-width="170" app>
 			<!-- Menu item as nav draver -->
 			<v-app-bar-nav-icon
 				class="mr-1"
@@ -18,22 +18,13 @@
 			>
 				<v-icon class="ml-1">mdi-home</v-icon></v-btn
 			>
-
-			<v-btn class="ml-1 " small plain icon @click="toggleTheme">
+			<header-path class="mb-5"></header-path>
+			<v-spacer></v-spacer>
+			<v-btn class="mr-1 " small plain icon @click="toggleTheme">
 				<v-icon :color="$vuetify.theme.dark ? 'white' : 'black'"
 					>mdi-invert-colors</v-icon
 				>
 			</v-btn>
-			<v-spacer></v-spacer>
-			<v-btn :disabled="backDisabled" plain icon @click="RouteBack"
-				><v-icon>mdi-arrow-left-bold-circle-outline</v-icon></v-btn
-			>
-			<span class="font-weight-light grey--text"> {{ routerLinks }}</span>
-
-			<v-btn class="mr-16" plain icon @click="RouteFront"
-				><v-icon> mdi-arrow-right-bold-circle-outline</v-icon></v-btn
-			>
-			<v-spacer></v-spacer>
 		</v-app-bar>
 		<!-- Navigation Drawer -->
 		<v-navigation-drawer left temporary v-model="drawer" collapse- app>
@@ -46,16 +37,8 @@
 				<span class="font-weight-light ma-2">{{
 					this.$store.getters.userName
 				}}</span>
-				<v-btn
-					small
-					plain
-					color="warning"
-					class="font-weight-light ma-1"
-					@click="Logout()"
-				>
-					<v-icon>mdi-logout-variant</v-icon>
-					<span>{{ $t('logout') }}</span>
-				</v-btn>
+				<!-- SIGNOUT BUTTON AND POPUP -->
+				<sign-out></sign-out>
 			</v-layout>
 
 			<v-list>
@@ -76,13 +59,14 @@
 	</v-card>
 </template>
 <script>
+	import SignOut from './HeaderParts/SignOut';
+	import HeaderPath from './HeaderParts/HeaderPath';
 	export default {
+		components: { SignOut, HeaderPath },
 		name: 'TheHeader',
 		data: function() {
 			return {
 				drawer: false,
-				group: null,
-
 				// Dynamic menu element items
 				menuitems: [
 					{ name: 'projects', icon: 'mdi-file' },
@@ -95,49 +79,41 @@
 			toggleTheme() {
 				this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
 			},
-			RouteBack() {
-				this.$router.go(-1);
-			},
-			RouteFront() {
-				this.$router.go(1);
-			},
-			Logout() {
-				this.$store.commit('userLogout');
-				this.$router.push({ path: '/' });
-			},
+			// RouteBack() {
+			// 	this.$router.go(-1);
+			// },
+			// RouteFront() {
+			// 	this.$router.go(1);
+			// },
 		},
 
 		computed: {
-			backDisabled() {
-				if (this.$route.name == 'Home') {
-					return true;
-				}
-				return false;
-			},
-			Routepath() {
-				return this.$route.path;
-			},
-			routerLinks() {
-				const str = this.$route.path;
-				let url = '';
-
-				const routeArray = [];
-				for (let i = 1; i <= str.length; i++) {
-					if (str[i] != '' || str[i] != '/') {
-						url += str[i];
-					}
-					if (str[i] === '/' || i === str.length - 1) {
-						let adj = '';
-						adj = url.replace('/', '');
-						routeArray.push(adj);
-						url = '';
-					}
-				}
-				return routeArray;
-			},
+			// backDisabled() {
+			// 	if (this.$route.name == 'Home') {
+			// 		return true;
+			// 	}
+			// 	return false;
+			// },
 		},
 
-		watch: {},
+		watch: {
+			// NOT USED ATM MAYBE LATER ON FOR CONSTRUCTING PATHS FROM HERE DYNAMICALLY CAN BE POSSIBLE INSTEAD OF CONDITIONALLY ADDING
+			// routePath() {
+			// 	console.log(this.routePath);
+			// 	let url = '';
+			// 	for (let i = 1; i <= this.routePath.length; i++) {
+			// 		if (this.routePath[i] != '' || this.routePath[i] != '/') {
+			// 			url += this.routePath[i];
+			// 		}
+			// 		if (this.routePath[i] === '/' || i === this.routePath.length - 1) {
+			// 			let adj = '';
+			// 			adj = url.replace('/', '');
+			// 			this.routeArray.push(adj);
+			// 			url = '';
+			// 		}
+			// 	}
+			// 	},
+		},
 	};
 </script>
 

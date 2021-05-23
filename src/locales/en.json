@@ -1,8 +1,7 @@
 {
-	"dark": "Dark",
-	"light": "Light",
 	"headerName": "Login Screen",
 	"footString": "Footer",
+
 	"logText": "Login",
 	"regText": "Register",
 	"userName": "Username",
@@ -12,21 +11,32 @@
 	"passhint": "Password can't be empty",
 	"passhintNofit": "Password must include an uppercase letter or a number",
 	"passhint8": "Password should be longer than 8 characters",
+	"wronguser": "Username or Password is wrong",
+
 	"return": "Return",
 	"pagenotfound": "We couldn't find the page you are looking for",
-	"pagenotfoundsub": "If you don't want to look at the weird colored mountains you can go back",
-	"wronguser": "Username or Password is wrong",
+
 	"settings": "Settings",
 	"projects": "Projects",
 	"projects1": "Projects-1",
+
 	"name": "Name",
 	"surname": "Surname",
 	"field": "Field",
 	"field1": "Field-1",
 	"field2": "Field-2",
 	"commentfield": "Comment",
+
 	"projectadd": "Add",
 	"projectview": "View",
+
 	"logout": "Logout",
-	"noauth": "Önce giriş yapmalısınız"
+	"confirm": "Confirm",
+	"soutreminder": "You are signing out are you sure?",
+
+	"noauthtitle": "ERROR NO AUTHORIZATION",
+	"noauth": "The page you are looking for might have been removed, hat its name changed or it is temporarily unavailable.",
+	"noauth-1": "PLEASE TRY TO GO",
+	"noauth-1button": "BACK",
+	"noauth-2": "GOOD LUCK."
 }
