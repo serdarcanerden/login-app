@@ -13,12 +13,16 @@
 	"passhint8": "Пароль не может быть пустым",
 	"wronguser": "Имя пользователя или пароль неверны",
 
+	"regFormTitle": "Регистрационная форма",
+
 	"return": "Возвращаться",
 	"pagenotfound": "Мы не смогли найти страницу, которую вы ищете",
 
 	"settings": "Настройки",
 	"projects": "Проекты",
 	"projects1": "Проекты-1",
+	"gridview": "gridview",
+	"gridview2": "gridview2",
 
 	"name": "Имя",
 	"surname": "Фамилия",

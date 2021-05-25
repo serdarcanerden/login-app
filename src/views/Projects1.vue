@@ -155,7 +155,7 @@
 </template>
 
 <script>
-	import TheHeader from '../components/TheHeader.vue';
+	import TheHeader from '../components/HeaderParts/TheHeader';
 	import ProjectView from '../components/ProjectView.vue';
 	import { addData } from '../fakedata/data.js';
 	export default {

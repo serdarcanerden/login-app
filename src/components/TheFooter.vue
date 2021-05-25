@@ -1,10 +1,5 @@
 <template>
-	<v-footer
-		align="center"
-		absolute
-		src="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
-		app
-	>
+	<v-footer align="center" absolute app>
 		<v-row no-gutters>
 			<!-- Displayng a  -->
 			<small>

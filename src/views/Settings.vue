@@ -102,7 +102,7 @@
 </template>
 
 <script>
-	import TheHeader from '../components/TheHeader';
+	import TheHeader from '../components/HeaderParts/TheHeader';
 
 	export default {
 		components: {

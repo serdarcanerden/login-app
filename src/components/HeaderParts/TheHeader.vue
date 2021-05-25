@@ -27,7 +27,7 @@
 			</v-btn>
 		</v-app-bar>
 		<!-- Navigation Drawer -->
-		<v-navigation-drawer left temporary v-model="drawer" collapse- app>
+		<v-navigation-drawer left temporary v-model="drawer" app>
 			<v-layout column align-center>
 				<v-flex class="mt-5">
 					<v-avatar class="ma-1" size="60">
@@ -44,23 +44,45 @@
 			<v-list>
 				<v-list-item
 					v-for="item in menuitems"
-					:key="item.title"
+					:key="item.name"
 					link
-					@click="$router.push({ name: item.name }).catch((err) => {})"
+					:prepend-icon="item.icon"
+					@click="$router.push({ name: item.link }).catch((err) => {})"
 				>
-					<v-list-item-action>
-						<v-icon class="ml-12" small color="primary">{{ item.icon }}</v-icon>
-					</v-list-item-action>
-					<span class="primary--text ml-n5"> {{ $t(item.name) }}</span>
+					<v-icon color="primary ">{{ item.icon }}</v-icon>
+					<v-list-item-title class="primary--text ml-5">
+						{{ $t(item.name) }}</v-list-item-title
+					>
 				</v-list-item>
-				<v-list-group> </v-list-group>
+				<v-list-group
+					v-for="item in groupitems"
+					:key="item.title"
+					v-model="item.active"
+				>
+					<template v-slot:activator>
+						<v-icon>{{ item.icon }}</v-icon>
+						<v-list-item-title class="primary--text ml-5">{{
+							$t(item.name)
+						}}</v-list-item-title>
+					</template>
+
+					<v-list-item
+						v-for="child in item.items"
+						:key="child.name"
+						@click="$router.push({ name: child.link }).catch((err) => {})"
+					>
+						<v-list-item-subtitle class="primary--text ml-8">
+							{{ $t(child.name) }}</v-list-item-subtitle
+						>
+					</v-list-item>
+				</v-list-group>
 			</v-list>
 		</v-navigation-drawer>
 	</v-card>
 </template>
 <script>
-	import SignOut from './HeaderParts/SignOut';
-	import HeaderPath from './HeaderParts/HeaderPath';
+	import SignOut from './SignOut';
+	import HeaderPath from './HeaderPath';
 	export default {
 		components: { SignOut, HeaderPath },
 		name: 'TheHeader',
@@ -69,9 +91,20 @@
 				drawer: false,
 				// Dynamic menu element items
 				menuitems: [
-					{ name: 'projects', icon: 'mdi-file' },
-					{ name: 'projects1', icon: 'mdi-file' },
-					{ name: 'settings', icon: 'mdi-cog' },
+					{ name: 'projects', icon: 'mdi-file', link: 'projects' },
+					{ name: 'projects1', icon: 'mdi-file', link: 'projects1' },
+					{ name: 'settings', icon: 'mdi-cog', link: 'settings' },
+				],
+				groupitems: [
+					{
+						icon: 'mdi-grid-large',
+						active: false,
+						items: [
+							{ name: 'Gridview', icon: 'mdi-view-grid', link: 'gridview' },
+							{ name: 'Gridview-2', icon: 'mdi-view-grid', link: 'gridview2' },
+						],
+						name: 'Grid Examples',
+					},
 				],
 			};
 		},
@@ -112,7 +145,7 @@
 			// 			url = '';
 			// 		}
 			// 	}
-			// 	},
+			// },
 		},
 	};
 </script>

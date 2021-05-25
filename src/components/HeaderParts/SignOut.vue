@@ -34,6 +34,7 @@
 
 <script>
 	export default {
+		name: 'sign-out',
 		data: function() {
 			return {
 				dialog: false,

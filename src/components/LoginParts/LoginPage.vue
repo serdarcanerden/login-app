@@ -2,16 +2,16 @@
 	<div>
 		<!-- Whole Login screen is a card can be changed but I thought it was fitting
 			for this purpose to use it and it is wrapping the form -->
-		<v-card elevation="10" width="500" class="mx-auto ma-16">
+		<v-card outlined elevation="10" width="500" class="mx-auto ma-16">
 			<div>
-				<v-card-title>
-					<span class="myFont mx-auto ma-4 secondary--text">{{
-						$t('headerName')
-					}}</span>
-				</v-card-title>
+				<v-card-text align="center">
+					<p class="ma-4 text-h5 font-weight-light text--secondary">
+						{{ $t('headerName') }}
+					</p>
+				</v-card-text>
 				<v-divider color="white"> </v-divider>
-				<v-card-text>
-					<v-form @submit.prevent="">
+				<v-form @submit.prevent="">
+					<v-card-text>
 						<!-- In these fields wanted to use clearable prop as well but when u clear 
 							with that object the code itself tries to check the rules and while it is 
 							empty returns a null value and tries to check that results in a error 
@@ -19,11 +19,10 @@
 							it and added hints on my own as div on the bottom -->
 						<v-text-field
 							autocomplete="off"
-							class="mt-4"
+							class=" mr-8 ml-8"
 							v-model="username"
 							title="username"
 							:rules="[rules.required, rules.min4, rules.max]"
-							outlined
 							prepend-icon="mdi-account-circle"
 							maxlength="16"
 							@blur="userActive()"
@@ -38,13 +37,13 @@
 						<div class="hint">
 							{{ hintUser }}
 						</div>
-						<v-divider color="white"> </v-divider>
+						<v-divider class="mb-6 mt-6" color="white"> </v-divider>
 						<!-- Only bad thing about these ones are the warnings are actually checked twice
 							one for vuetify and one for the text not too much performance hit but still can be 
 							improved -->
 
 						<v-text-field
-							class="mt-4"
+							class="mr-8 ml-8"
 							ref="passInput"
 							name="password"
 							autocomplete="password"
@@ -60,7 +59,6 @@
 							counter="16"
 							maxlength="16"
 							:type="showEye ? 'text' : 'password'"
-							outlined
 							:prepend-icon="showLock ? 'mdi-lock-open-variant' : 'mdi-lock'"
 							:append-icon="showEye ? 'mdi-eye' : 'mdi-eye-off'"
 							@click:append="showEye = !showEye"
@@ -74,17 +72,17 @@
 						<div class="hint">{{ hintPass }}</div>
 
 						<!-- Buttons divider a register form can be added didn't add that one -->
-						<v-divider color="white"> </v-divider>
+						<v-divider class="mt-6 mb-6" color="white"> </v-divider>
 
 						<v-card-actions p="10">
-							<v-btn elevation="5" class="white--text" large color="info"
+							<!-- <v-btn class="white--text ml-4" large color="info"
 								><v-icon>mdi-content-save-edit-outline</v-icon
 								>{{ $t('regText') }}</v-btn
-							>
+							> -->
+							<login-page></login-page>
 							<v-spacer></v-spacer>
 							<v-btn
-								elevation="15"
-								class="white--text"
+								class="white--text mr-4"
 								color="success"
 								type="Login"
 								large
@@ -94,18 +92,36 @@
 								<v-icon dark> mdi-login-variant </v-icon></v-btn
 							>
 						</v-card-actions>
-					</v-form>
-				</v-card-text>
+					</v-card-text>
+				</v-form>
 			</div>
 		</v-card>
+		<v-snackbar
+			color="error"
+			absolute
+			top
+			v-model="snackbar"
+			:timeout="timeout"
+			app
+		>
+			{{ $t('wronguser') }}
+
+			<template v-slot:action="{ attrs }">
+				<v-btn color="white" text v-bind="attrs" @click="snackbar = false">
+					Close
+				</v-btn>
+			</template>
+		</v-snackbar>
 	</div>
 </template>
 
 <script>
-	// import store from '../store/index.js';
+	import LoginPage from './PopUpRegister';
 	export default {
-		name: 'LoginPage',
+		components: { LoginPage },
 		data: () => ({
+			timeout: 4000,
+			snackbar: false,
 			showEye: false, //Icon password show boolean
 			username: '', // Username (v-model) value
 			password: '', // Password (v-model) value
@@ -175,7 +191,7 @@
 							}
 						}
 						if (!user || !this.showLock) {
-							alert('Username or password is wrong');
+							this.snackbar = true;
 						}
 					});
 			},
@@ -222,22 +238,10 @@
 </script>
 
 <style scoped>
-	.myFont {
-		font-family: Arial, Helvetica, sans-serif;
-		font-size: 2rem;
-	}
-
 	.hint {
-		color: red;
+		color: #ff5252;
 		justify-items: center;
 		display: grid;
 		align-items: start;
-	}
-	/* .vDivider {
-		background: #ffffff;
-	} */
-
-	.titleColor {
-		color: #f3ebebd5;
 	}
 </style>

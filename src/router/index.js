@@ -7,7 +7,10 @@ import Settings from '../views/Settings.vue';
 import Projects from '../views/Projects.vue';
 import Projects1 from '../views/Projects1.vue';
 import NoLogin from '../views/NoLogin.vue';
+import GridView from '../views/GridView.vue';
+import GridView2 from '../views/GridView2';
 import store from '../store/index';
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -40,6 +43,18 @@ const routes = [
 		path: '/home/projects1',
 		name: 'projects1',
 		component: Projects1,
+		meta: { requiresAuth: true },
+	},
+	{
+		path: '/home/gridview',
+		name: 'gridview',
+		component: GridView,
+		meta: { requiresAuth: true },
+	},
+	{
+		path: '/home/gridview2',
+		name: 'gridview2',
+		component: GridView2,
 		meta: { requiresAuth: true },
 	},
 	{

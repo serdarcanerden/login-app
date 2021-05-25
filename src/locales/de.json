@@ -13,12 +13,16 @@
 	"passhint8": "Das Passwort sollte länger als 8 Zeichen sein",
 	"wronguser": "Username or Password is wrong",
 
+	"regFormTitle": "Registrierungsformular",
+
 	"return": "Rückkehr",
 	"pagenotfound": "Wir konnten die gesuchte Seite nicht finden",
 
 	"settings": "die Einstellungen",
 	"projects": "Projekte",
 	"projects1": "Projekte-1",
+	"gridview": "gridview",
+	"gridview2": "gridview2",
 
 	"name": "Name",
 	"surname": "Nachname",

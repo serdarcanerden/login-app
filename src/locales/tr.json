@@ -13,12 +13,16 @@
 	"passhint8": "Şifreniz 8 karakterden uzun olmalı",
 	"wronguser": "Üye ismi ya da Şifre yanlış",
 
+	"regFormTitle": "Kayıt Formu",
+
 	"return": "Geri Dön",
 	"pagenotfound": "Aradığınız sayfayı bulamadık üzgünüz",
 
 	"settings": "Ayarlar",
 	"projects": "Projeler",
 	"projects1": "Projeler-1",
+	"gridview": "gridview",
+	"gridview2": "gridview2",
 
 	"name": "İsim",
 	"surname": "Soyisim",
